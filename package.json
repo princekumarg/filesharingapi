@@ -16,6 +16,9 @@
     "nodemailer": "^6.9.4",
     "uuid": "^9.0.0"
   },
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "devDependencies": {
     "nodemon": "^3.0.1"
   }
