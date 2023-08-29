@@ -10,13 +10,11 @@ app.use(express.json());
 const connectDB=require('./config/db');
 connectDB();
 //cores
-app.use(cors({
-    origin(origin, cb) {
-      const whitelist = process.env.ALLOWED_CLIENTS ? process.env.ALLOWED_CLIENTS.split(',') : [];
-      cb(null, whitelist.includes(origin));
-    },
-    credentials: true,
-  }));
+const corsOptions = {
+  origin: process.env.ALLOWED_CLIENTS.split(',')
+  // ['http://localhost:3000', 'http://localhost:5000', 'http://localhost:3300']
+}
+app.use(cors(corsOptions))
 //Template engine
 app.set('views', path.join(__dirname,'/views'));
 app.set('view engine','ejs');
