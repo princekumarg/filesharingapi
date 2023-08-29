@@ -7,7 +7,7 @@
     "dev": "nodemon server.js",
     "server": "node server.js"
   },
-  "proxy":"http://localhost:5000",
+  "proxy":"http://localhost:5501",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
