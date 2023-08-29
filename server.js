@@ -17,7 +17,6 @@ app.use(cors({
     },
     credentials: true,
   }));
-app.use(cors(corsOptions))
 
 //Template engine
 app.set('views', path.join(__dirname,'/views'));
