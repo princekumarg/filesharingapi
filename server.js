@@ -4,6 +4,11 @@ const app=express();
 const path=require('path');
 const PORT=process.env.PORT || 3000;
 const cors=require('cors');
+const corsOptions = {
+  origin: process.env.ALLOWED_CLIENTS ? process.env.ALLOWED_CLIENTS.split(',') : []
+  // ['http://localhost:3000', 'http://localhost:5000', 'http://localhost:3300']
+}
+app.use(cors(corsOptions))
 app.use(express.static('public'));
 //express doesn't parese the json data so we have to use this middleware
 app.use(express.json());
@@ -17,11 +22,6 @@ connectDB();
     },
     credentials: true,
   }));*/
-const corsOptions = {
-    origin: process.env.ALLOWED_CLIENTS ? process.env.ALLOWED_CLIENTS.split(',') : []
-    // ['http://localhost:3000', 'http://localhost:5000', 'http://localhost:3300']
-}
-app.use(cors(corsOptions))
 
 //Template engine
 app.set('views', path.join(__dirname,'/views'));
